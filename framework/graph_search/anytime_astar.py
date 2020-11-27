@@ -104,8 +104,6 @@ class AnytimeAStar(GraphProblemSolver):
                     # there is no solution with mid
                     low_heuristic_weight = mid_heuristic_weight
 
-                # raise NotImplementedError  # TODO: remove this line!
-
         self.solver_name = f'{self.__class__.solver_name} (h={best_solution.solver.heuristic_function.heuristic_name}, w={best_heuristic_weight:.3f})'
         return best_solution._replace(
             solver=self, nr_expanded_states=total_nr_expanded_states, max_nr_stored_states=max_nr_stored_states,

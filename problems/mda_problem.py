@@ -78,14 +78,11 @@ class MDAState(GraphProblemState):
         #   (using equals `==` operator) because the class `Junction` explicitly
         #   implements the `__eq__()` method. The types `frozenset`, `ApartmentWithSymptomsReport`, `Laboratory`
         #   are also comparable (in the same manner).
-        # raise NotImplementedError  # TODO: remove this line.
 
         return self.current_site == other.current_site and \
                self.tests_transferred_to_lab == other.tests_transferred_to_lab and \
                self.nr_matoshim_on_ambulance == other.nr_matoshim_on_ambulance and \
                self.visited_labs == other.visited_labs
-
-        # return self.current_site == other.current_site  # check this later...
 
     def __hash__(self):
         """
@@ -106,7 +103,6 @@ class MDAState(GraphProblemState):
          Notice that `sum()` can receive an *ITERATOR* as argument; That is, you can simply write something like this:
         # >>> sum(<some expression using item> for item in some_collection_of_items)
         """
-        # raise NotImplementedError  # TODO: remove this line.
         return sum([item.nr_roommates for item in self.tests_on_ambulance])
 
 
@@ -311,11 +307,11 @@ class MDAProblem(GraphProblem):
          In order to create a set from some other collection (list/tuple) you can just `set(some_other_collection)`.
         """
         assert isinstance(state, MDAState)
-        # raise NotImplementedError  # TODO: remove the line!
         # state is goal if :
         # is laboratory
         # wh have been in all the apartments
         # it has no tests on the ambulance
+        # so:
 
         return state.tests_transferred_to_lab == set(self.problem_input.reported_apartments)
 
@@ -349,8 +345,7 @@ class MDAProblem(GraphProblem):
             state.tests_transferred_to_lab)))
         tmp.sort(key=lambda ap: ap.report_id)
         return tmp
-        # TODO : change to 1 line !!! return (list(set(self.problem_input.reported_apartments) - set(
-        #  state.tests_transferred_to_lab) - set(state.tests_on_ambulance))).sort(key=lambda x:x.report_id) -not working
+        # TODO : change to 1 line
 
     def get_all_certain_junctions_in_remaining_ambulance_path(self, state: MDAState) -> List[Junction]:
         """
@@ -367,4 +362,3 @@ class MDAProblem(GraphProblem):
         res.append(state.current_location)
         sorted(res, key=lambda x: x.index)
         return res
-        # raise NotImplementedError  # TODO: remove this line!
