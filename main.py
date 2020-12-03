@@ -351,7 +351,7 @@ def mda_problem_anytime_astar_experiments():
 
 def run_all_experiments():
     print('Running all experiments')
-    # print(time.ctime())  # use for testing
+    # print(time.ctime())  # used for testing
     toy_map_problem_experiments()
     basic_mda_problem_experiments()
     mda_problem_with_astar_experiments()
@@ -360,7 +360,7 @@ def run_all_experiments():
     multiple_objectives_mda_problem_experiments()
     mda_problem_with_astar_epsilon_experiments()
     mda_problem_anytime_astar_experiments()
-    # print(time.ctime())  # use for testing
+    # print(time.ctime())  # used for testing
 
 
 if __name__ == '__main__':

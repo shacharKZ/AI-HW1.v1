@@ -69,9 +69,6 @@ class MapProblem(GraphProblem):
         #  Note: Generally, in order to check whether a variable is set to None you should use the expression:
         #        `my_variable_to_check is None`, and particularly do NOT use comparison (==).
 
-        # yield OperatorResult(successor_state=MapState(self.target_junction_id), operator_cost=7)  # TODO: remove
-        #  this line!
-
     def is_goal(self, state: GraphProblemState) -> bool:
         """
         :return: Whether a given map state represents the destination.
